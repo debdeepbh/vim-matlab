@@ -1,6 +1,6 @@
-This is a mirror of http://www.vim.org/scripts/script.php?script_id=2407
-
 Contains a set of files useful to edit Matlab files in vim.
+
+This is a modification of http://www.vim.org/scripts/script.php?script_id=2407
 
 ### Installation
 * Clone the repository or install using a plugin manager
@@ -30,53 +30,75 @@ endif
 See more help with `:h matchit`.
 Now, jump between `for/end` (for example) by pressing `%`.
 
-### Details
+### Features
 
 Included is :
-1) Syntax highlighting
-2) Correct setting to use the matchit.vim script (extension of the % command to match if/end, for/end,... blocks)
-3) Correct indentation
-4) Integration of mlint (Matlab code checker) with the :make command
-5)Tag support
-6) Help file
+1. Syntax highlighting
+1. Correct setting to use the matchit.vim script (extension of the % command to match if/end, for/end,... blocks)
+1. Correct indentation
+1. Integration of mlint (Matlab code checker) with the :make command
+1. ag support
+1. Help file
 
 
-1) Syntax highlighting
+#### Syntax highlighting
 
-syntax/matlab.vim : Updates the matlab.vim syntax file provided in the vim distribution :
-- highlights keywords dealing with exceptions : try / catch / rethrow
-- highlights keywords dealing with class definitions : classdef / properties / methods / events
+`syntax/matlab.vim` : Updates the `matlab.vim` syntax file provided in the vim distribution :
+- highlights keywords dealing with exceptions : `try` / `catch` / `rethrow`
+- highlights keywords dealing with class definitions : `classdef` / `properties` / `methods` / `events`
 - highlights most Matlab functions
 
-2) Correct settings in order to use the matchit.vim script 
+#### Correct settings in order to use the matchit.vim script 
 
-The matchit.vim extends the % matching and enables to jump through matching groups such as "if/end" or "swicth/end" blocks (see :help matchit in vim)
+The `matchit.vim` extends the `%` matching and enables to jump through matching groups such as `if/end` or `swicth/end` blocks (see `:help matchit` in vim)
 
-ftplugin/matlab.m provides the suitable definition for b:match_words in order to jump between if/end, classdef/end, methods/end, events/end, properties/end, while/end, for/end, switch/end, try/end, function/end blocks
+`ftplugin/matlab.m` provides the suitable definition for `b:match_words` in order to jump between `if/end`, `classdef/end`, `methods/end`, `events/end`, `properties/end`, `while/end`, `for/end`, `switch/end`, `try/end`, `function/end` blocks
 
-3) Correct indentation
-indent/matlab.vim : Updates the matlab.vim indention file provided in the vim distribution.
+#### Correct indentation
+`indent/matlab.vim` : Updates the `matlab.vim` indention file provided in the vim distribution.
 This script provides a correct indentation for :
-- switch / end, try / catch blocks
-- classdef / methods / properties / events
+- `switch / end`, `try / catch` blocks
+- `classdef / methods / properties / events`
 - mutli-line (lines with line continuation operator (...))
+
+Indent selection using `=`, or use it in combinations with other moves such as `==`, `=ap` etc.
 
 This script has been tested with the Matlab R2008a release on many files and the result of indentation compared to the one provided by the Matlab Editor (with 'indent all functions' option set)
 
 NOTE : to work correctly, this script need the matchit.vim (vimscript#39) to be installed.
 
-4) Integration of mlint (Matlab code checker) with the :make command
+#### Integration of mlint (Matlab code checker) with the :make command
 
-compiler/mlint.m provides the settings to use mlint (Matlab code ckecker) and puts the messages reported in the quickfix buffer.
+`compiler/mlint.m` provides the settings to use `mlint` (Matlab code checker) and puts the messages reported in the quickfix buffer.
 
-Whenever you want to check your code, just type :make and then :copen and vim opens a quickfix buffer which enables to jump to errors (using :cn, :cp or Enter to jump to the error under the cursor : see :help quickfix in vim)
+Whenever you want to check your code, just type `:make` and then `:copen` and vim opens a quickfix buffer which enables to jump to errors (using `:cn`, `:cp` or `Enter` to jump to the error under the cursor. See `:help quickfix` in vim)
 
-5)Tag support
-The .ctags file (in the matlab.tar.gz) defines the Matlab language so that the exuberant ctags (http://ctags.sourceforge.net ) can construct the tag file : you can now jump to tags (using CTRL-] (or CTRL-$ if using Windows) and go back again (CTRL-T)
-See also :help tags in vim.
+#### Tag support
+
+The `.ctags` file (in the matlab.tar.gz) defines the Matlab language so that the [exuberant ctags](http://ctags.sourceforge.net) can construct the tag file. You can now jump to tags (using `CTRL-]` (or `CTRL-$` if using Windows) and go back again (`CTRL-T`)
+See also `:help tags` in vim.
+
+#### Help file
+
+`doc/matlab.txt` provides documentation.
+
+If using `pathogen` to install, run `:HelpTags`. 
 
 
-These scipts have been tested using gvim 7.2 and Matlab R2008a on Windows.
+Manual installation: If the `vim-matlab` directory is located in `$HOME/.vim/`, run the command 
+```
+:helptags $HOME/.vim/vim-matlab/doc
+```
+in vim to create help for matlab
+
+And then the command
+`:help matlab`
+is available. 
+
+
+These scripts have been tested using 
+* gvim 7.2 and Matlab R2008a on Windows.
+* vim 8.0 Matlab 2020a on Ubuntu 20.04
 
 
 
