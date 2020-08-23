@@ -13,7 +13,9 @@ let s:save_cpo = &cpo
 set cpo-=C
 
 setlocal fo+=croql
-setlocal comments=:%>,:%
+"setlocal comments=:%>,:%
+"" compatible with cline and bbox for UltiSnip
+setlocal comments=:%
 
 if exists("loaded_matchit")
   let s:conditionalEnd = '\(([^()]*\)\@!\<end\>\([^()]*)\)\@!'
