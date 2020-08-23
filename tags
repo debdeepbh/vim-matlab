@@ -1,0 +1,22 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+CompilerSet	compiler/mlint.vim	/^  command -nargs=* CompilerSet setlocal <args>$/;"	c
+GetMatlabIndent	indent/matlab.vim	/^function GetMatlabIndent()$/;"	f
+HiLink	syntax/matlab.vim	/^    command -nargs=+ HiLink hi def link <args>$/;"	c
+HiLink	syntax/matlab.vim	/^    command -nargs=+ HiLink hi link <args>$/;"	c
+IsMatlabContinuationLine	indent/matlab.vim	/^function! s:IsMatlabContinuationLine(lnum)$/;"	f
+b:browsefilter	ftplugin/matlab.vim	/^  let  b:browsefilter="M-files (*.m)\\t*.m\\n" .$/;"	v
+b:current_syntax	syntax/matlab.vim	/^let b:current_syntax = "matlab"$/;"	v
+b:did_ftplugin	ftplugin/matlab.vim	/^let b:did_ftplugin = 1$/;"	v
+b:did_indent	indent/matlab.vim	/^let b:did_indent = 1$/;"	v
+b:match_words	ftplugin/matlab.vim	/^  let b:match_words = '\\<classdef\\>\\|\\<methods\\>\\|\\<events\\>\\|\\<properties\\>\\|\\<if\\>\\|\\<while\\>\\|\\<for\\>\\|\\<switch\\>\\|\\<try\\>\\|\\<function\\>:' . s:conditionalEnd$/;"	v
+b:undo_ftplugin	ftplugin/matlab.vim	/^let b:undo_ftplugin = "setlocal suffixesadd< suffixes< "$/;"	v
+current_compiler	compiler/mlint.vim	/^let current_compiler = "mlint"$/;"	v
+did_matlab_syntax_inits	syntax/matlab.vim	/^    let did_matlab_syntax_inits = 1$/;"	v
+s:conditionalEnd	ftplugin/matlab.vim	/^  let s:conditionalEnd = '\\(([^()]*\\)\\@!\\<end\\>\\([^()]*)\\)\\@!'$/;"	v
+s:functionWithoutEndStatement	indent/matlab.vim	/^let s:functionWithoutEndStatement = 0$/;"	v
+s:save_cpo	ftplugin/matlab.vim	/^let s:save_cpo = &cpo$/;"	v

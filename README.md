@@ -1,6 +1,36 @@
 This is a mirror of http://www.vim.org/scripts/script.php?script_id=2407
 
-Contains a set of files useful to edit Matlab files.
+Contains a set of files useful to edit Matlab files in vim.
+
+### Installation
+* Clone the repository or install using a plugin manager
+* To use `mlint` as code checker (linter): 
+First locate `mlint`. The location of the binary `matlab` can be found using `whereis matlab`.  My output is `matlab: /usr/local/bin/matlab`. A quick `ls -l` shows that it is actually a soft link to `/usr/local/MATLAB/R2020a/bin/matlab`. The binary `mlint` must be nearby. Turns out, `mlint` is in the location `/usr/local/MATLAB/R2020a/bin/glnxa64/mlint`.
+Create a soft link in `/usr/local/bin/` of `mlint` using
+```
+cd /usr/local/bin/
+ln -s /usr/local/MATLAB/R2020a/bin/glnxa64/mlint mlint
+```
+Now, `mlint` can be invoked from the terminal like this: `mlint filename.m`.
+
+Therefore, `$HOME/.vim/bundle/vim-matlab/compiler/mlint.m` can access it. 
+Now, after opening a `.m` file, we can issue `:make` and then `:copen` to see error messages. Optionally, we can combine these options together and another line to the file `ftplugin/matlab.vim`
+```
+map <silent> <Leader>ll :make<CR>:copen<CR>
+```
+This launches the errors when we press `\ll`.
+
+* Enable matlab jump of cursor between `for` and associated `end` using `%`:
+`matchit` has been added to the main vim version since v6. To enable it add to .vimrc:
+```
+if !exists('g:loaded_matchit') && findfile('plugin/matchit.vim', &rtp) ==# ''
+  runtime! macros/matchit.vim
+endif
+```
+See more help with `:h matchit`.
+Now, jump between `for/end` (for example) by pressing `%`.
+
+### Details
 
 Included is :
 1) Syntax highlighting
@@ -9,7 +39,6 @@ Included is :
 4) Integration of mlint (Matlab code checker) with the :make command
 5)Tag support
 6) Help file
-
 
 
 1) Syntax highlighting
